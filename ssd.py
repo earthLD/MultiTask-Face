@@ -10,8 +10,6 @@ import tensorflow as tf
 import cv2
 from PIL import Image
 import os
-sys.path.append("./tensorflow-face-detection")
-
 
 import numpy as np
 from os.path import join, exists
@@ -30,7 +28,7 @@ K.set_session(session)
 
 
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
-PATH_TO_CKPT = './tensorflow-face-detection/model/frozen_inference_graph_face.pb'
+PATH_TO_CKPT = './model-ssd/frozen_inference_graph_face.pb'
 
 detection_graph = tf.Graph()
 with detection_graph.as_default():
@@ -54,9 +52,6 @@ def detectFace(sess,path):
     num_detections = detection_graph.get_tensor_by_name('num_detections:0')
     image = cv2.imread(path)
     image_np = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    # the array based representation of the image will be used later in order to prepare the
-    # result image with boxes and labels on it.
-    # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
     image_np_expanded = np.expand_dims(image_np, axis=0)
     # Actual detection.
 #     start_time = time.time()
