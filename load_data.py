@@ -15,7 +15,7 @@ def Image_label_generator_train(imgs_name , Idxs , labels, train=True):
         
     num = 0
     batch_size = 16
-    train_path = '/data/luodan_data/img_celeba_ssd/'
+    train_path = '/data/img_celeba_ssd/'
     if train:
         Idx = shuffle_balance(Idxs, imgs_name, labels)
     else:
@@ -132,11 +132,6 @@ def shuffle_balance(Idx, imgs_name, labels):
             emo_num[emo] += 1
             eth_num[int(attr['ethnicity'])] += 1
             Idx_res.append(i)
-#     print("age_num:", age_num)
-    # print('Idx_res:', len(Idx_res))
-    # print(age_num)
-    # print(emo_num)
-    # print(eth_num)
     return Idx_res
         
         
