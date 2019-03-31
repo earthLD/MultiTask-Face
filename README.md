@@ -1,4 +1,5 @@
 # MultiTask Face attribute
+This project can detecte the attribute of face, such as age, gender, emotion, race, and key points
 
 # Pre-requisites
 Python 2.7x
